@@ -105,7 +105,7 @@ include "config/session.php";
                     <?php }
                     ?>
                   </div>
-                  <div>
+                  <div class="text-start">
                     <label class="modal-canti text-3 size-20">Cantidad</label>
                     <input type="number" class="modalCant text-3" id="modal-cantidad<?php echo $key; ?>" value="1">
                     <button id="ButtonAdd" class="boton modalAdd" onclick="ButtonAdd('<?php echo $key; ?>', '<?= $lista->getNombre_producto() ?>', '<?= $lista->getDescripcion() ?>', '<?= $lista->getPrecio_producto() ?>', '<?= $lista->getTipo_categoria() ?>')">Añadir</button>
