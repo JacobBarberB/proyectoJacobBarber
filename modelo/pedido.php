@@ -1,12 +1,16 @@
 <?php
-require_once 'ingredientes.php';
-//include 'producto.php';
+namespace MODELO;
+
+use MODELO\BURGER;
+use MODELO\SANDWICH;
+use MODELO\MERIENDA;
+use MODELO\PRODUCTO;
+use MODELO\INGREDIENTES;
 
 class PEDIDO implements \JsonSerializable{
     protected $producto;
     protected $cantidad;
     protected array $extras = [];
-    //protected $precioFinal;
 
     public function _construct($producto, $cantidad, array $extras = []){
         $this->producto = $producto;
@@ -43,12 +47,10 @@ class PEDIDO implements \JsonSerializable{
                 $ingredientesFinales[] = $ingrediente_enviado;
             }    
         }
-
         foreach ($ingredientesFinales as $ingrediente) {
             $this->extras[] = new INGREDIENTES($ingrediente);
         }             
-    }
-    
+    }    
 
     public function getExtrasMoney()
     {
@@ -56,9 +58,9 @@ class PEDIDO implements \JsonSerializable{
         foreach ($this->extras as $ingrediente) {
             $money += $ingrediente->getMoney();
         }
-
         return $money;
     }
+
     public function jsonSerialize()
     {
         return get_object_vars($this);

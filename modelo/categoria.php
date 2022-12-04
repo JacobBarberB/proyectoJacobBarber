@@ -1,8 +1,10 @@
 <?php
 
+namespace MODELO;
+
 class CATEGORIA 
 {
     public const BURGUER = '1';
     public const SANDWICHS = '2';
-    public const MERIENDA = '3';
+    public const MERIENDAS = '3';
 }

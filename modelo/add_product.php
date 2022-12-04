@@ -1,24 +1,31 @@
 <?php 
 
+namespace MODELO;
+
 session_start();
 
-include "pedido.php";
-require_once 'producto.php';
-//require_once 'burger.php';
-require_once 'categoria.php';
+include "../autoload.php";
+
+use MODELO\BURGER;
+use MODELO\SANDWICH;
+use MODELO\MERIENDA;
+use MODELO\INGREDIENTES;
+use MODELO\PEDIDO;
+use MODELO\CATEGORIA;
+use MODELO\PRODUCTO;
+
 require_once 'productos_hechos.php';
+$ingredientes = [];
+if(isset($_POST['ingredientes'])){
+    $ingredientes = explode(';', trim($_POST['ingredientes'], ';'));
+}
 
-$ingredientes = explode(';', trim($_POST['ingredientes'], ';'));
-
-$pedido = new pedido();
+$pedido = new PEDIDO();
 if($_POST['tipo'] == CATEGORIA::BURGUER){
     $producto = $lista_burgers[$_POST['id']];
-    //$producto = new BURGER($_POST['id'], $_POST['nombre'], $_POST['descripcion'], $_POST['precio'], $_POST['tipo']);
-} elseif ($_POST['tipo'] == CATEGORIA::SANDWICHS) {
-    //$producto = new SANDWICH();
+} elseif ($_POST['tipo'] == CATEGORIA::SANDWICHS) {    
     $producto = $lista_sandwiches[$_POST['id']];
-} elseif ($_POST['tipo'] == CATEGORIA::MERIENDA) {
-    //$producto = new MERIENDA();
+} elseif ($_POST['tipo'] == CATEGORIA::MERIENDAS) {    
     $producto = $lista_meriendas[$_POST['id']];
 }
 

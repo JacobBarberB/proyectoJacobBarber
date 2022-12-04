@@ -1,15 +1,17 @@
 <?php
 
-//include 'ingredientes.php';
-//include 'producto.php';
-require_once 'categoria.php';
+namespace MODELO;
 
-class MERIENDAS extends PRODUCTO{
+use MODELO\PRODUCTO;
+use MODELO\CATEGORIA;
+use MODELO\INGREDIENTES;
+
+class MERIENDA extends PRODUCTO{
 
     public array $ingrediente = array();
 
     public function __construct(int $id_producto, string $nombre_producto, string $descripcion, float $precio_producto, $imagen, array $ingrediente = []){
-        parent::__construct($id_producto, $nombre_producto, $descripcion, $precio_producto, $imagen, CATEGORIA::MERIENDA);
+        parent::__construct($id_producto, $nombre_producto, $descripcion, $precio_producto, $imagen, CATEGORIA::MERIENDAS);
         
         $this->ingrediente[] = new INGREDIENTES('leche');
 
@@ -46,17 +48,4 @@ class MERIENDAS extends PRODUCTO{
 
         return false;
     }
-
-/*
-    public function calculaPrecio($numDias){
-        $precioTotal = $numDias*Producto::PRECIOGAME;
-    }
-
-    public function devuelvePrecioDia(){
-        if($this->plataforma == 'PS5'){
-            return self::PRECIOGAME +1;
-        }else{
-            return self::PRECIOGAME;
-        }       
-    }*/
 }

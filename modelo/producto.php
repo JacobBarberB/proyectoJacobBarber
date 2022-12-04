@@ -1,6 +1,11 @@
 <?php
 
-//namespace modelo;
+namespace MODELO;
+
+use MODELO\BURGER;
+use MODELO\SANDWICH;
+use MODELO\MERIENDA;
+use MODELO\INGREDIENTES;
 
 class PRODUCTO implements \JsonSerializable{
     protected $id_producto;
@@ -68,9 +73,5 @@ class PRODUCTO implements \JsonSerializable{
     {
         return get_object_vars($this);
     }
-
-    /*
-    public abstract function calculaPrecio($numDias);
-    public abstract function devuelvePrecioDia();*/
-        
+    
 }

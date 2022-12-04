@@ -1,8 +1,10 @@
 <?php
 
-//include 'ingredientes.php';
-//include 'producto.php';
-require_once 'categoria.php';
+namespace MODELO;
+
+use MODELO\PRODUCTO;
+use MODELO\CATEGORIA;
+use MODELO\INGREDIENTES;
 
 class SANDWICH extends PRODUCTO{
 

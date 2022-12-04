@@ -1,6 +1,10 @@
 <?php
 
-require_once 'categoria.php';
+namespace MODELO;
+
+use MODELO\PRODUCTO;
+use MODELO\CATEGORIA;
+use MODELO\INGREDIENTES;
 
 class BURGER extends PRODUCTO {
 
@@ -43,7 +47,6 @@ class BURGER extends PRODUCTO {
                 return true;
             }
         }
-
         return false;
     }
 }

@@ -2,11 +2,9 @@
 //Establecemos el nombre de la session
 $nameSession = 'SessionLous';
 //Establecer el tiempo de espera de la sesión en 5 minutos
-$timeout = 10 ;
+$timeout = (60) * 5 ;
 //Establecer el maxlifetime de la sesión
 ini_set ( "session.gc_maxlifetime" , $timeout ) ;
-//Establecer la duración de la cookie de la sesión
-//ini_set ( "session.cookie_lifetime" , $timeout ) ;
 
 //Iniciar una nueva sesión
 session_start() ;
@@ -20,7 +18,7 @@ if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
 }
 
 // either new or old, it should live at most for another hour
-$_SESSION['discard_after'] = $now + 3600;
+$_SESSION['discard_after'] = $now + $timeout;
 
 //Establecer el nombre de sesión predeterminado
 //$s_name = session_name ($nameSession) ;

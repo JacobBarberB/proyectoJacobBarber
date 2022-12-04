@@ -1,16 +1,14 @@
 <?php
-include "config/parameters.php";
-include "modelo/producto.php";
-include "modelo/pedido.php";
+
+include "autoload.php";
+use MODELO\BURGER;
+use MODELO\SANDWICH;
+use MODELO\MERIENDA;
+use MODELO\PRODUCTO;
+use MODELO\INGREDIENTES;
+use MODELO\PEDIDO;
 require_once 'modelo/productos_hechos.php';
-//include "autoload.php";
-//use modelo\producto;
 
-//$model = new modelo\producto();
-
-// spl_autoload(function($clase){
-//   require_once str_replace('\\', '/', $clase) . '.php';
-// });
 
 include "config/session.php";
 ?>

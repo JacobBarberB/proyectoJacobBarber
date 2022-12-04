@@ -2,6 +2,8 @@
 
 // VO
 
+namespace MODELO;
+
 class INGREDIENTES implements \JsonSerializable{
 
     private const PAN_BURGER = ['name' => 'pan_burger', 'price' => 0];

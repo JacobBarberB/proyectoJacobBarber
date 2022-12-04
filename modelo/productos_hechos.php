@@ -1,7 +1,12 @@
 <?php
-require_once 'burger.php';
-require_once 'sandwich.php';
-require_once 'merienda.php';
+
+namespace MODELO;
+
+use MODELO\BURGER;
+use MODELO\SANDWICH;
+use MODELO\MERIENDA;
+use MODELO\PRODUCTO;
+use MODELO\INGREDIENTES;
 
 $lista_burgers = array(
     0 => new BURGER(0,'Clásica', 'La básica de siempre, hamburguesa de ternera con queso.', 5.65, "assets/images/burger_1.jpg" ),
@@ -21,9 +26,9 @@ $lista_sandwiches = array(
 );
 
 $lista_meriendas = array(
-    0 => new MERIENDAS(0,'Lorreine', 'El milkshake más sabroso! Con chocolate, fresa y nata.', 5.99, "assets/images/merienda_1.jpg", [new INGREDIENTES('chocolate'), new INGREDIENTES('fresa'), new INGREDIENTES('nata')]),
-    1 => new MERIENDAS(1,'Oreo', 'Explota de sabor! Milkshake relleno de oreo, nata y chocolate.', 6.49, "assets/images/merienda_2.jpg", [new INGREDIENTES('oreo'), new INGREDIENTES('nata'), new INGREDIENTES('chocolate')]),
-    2 => new MERIENDAS(2,'Choco', 'Sólo para los adictos al chocolate! Con nata y mucho chocolate.', 8.45, "assets/images/merienda_3.jpg", [new INGREDIENTES('nata'), new INGREDIENTES('chocolate')])
+    0 => new MERIENDA(0,'Lorreine', 'El milkshake más sabroso! Con chocolate, fresa y nata.', 5.99, "assets/images/merienda_1.jpg", [new INGREDIENTES('chocolate'), new INGREDIENTES('fresa'), new INGREDIENTES('nata')]),
+    1 => new MERIENDA(1,'Oreo', 'Explota de sabor! Milkshake relleno de oreo, nata y chocolate.', 6.49, "assets/images/merienda_2.jpg", [new INGREDIENTES('oreo'), new INGREDIENTES('nata'), new INGREDIENTES('chocolate')]),
+    2 => new MERIENDA(2,'Choco', 'Sólo para los adictos al chocolate! Con nata y mucho chocolate.', 8.45, "assets/images/merienda_3.jpg", [new INGREDIENTES('nata'), new INGREDIENTES('chocolate')])
 );
 
 ?>

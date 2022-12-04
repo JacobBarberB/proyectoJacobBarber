@@ -1,8 +1,7 @@
 <?php
 include "config/parameters.php";
-include "modelo/producto.php";
-include "modelo/pedido.php";
-include "modelo/calculos.php";
+include "autoload.php";
+
 require_once 'modelo/productos_hechos.php';
 
 if(isset($_COOKIE['ultimoPedido'])){
@@ -13,37 +12,14 @@ if(isset($_COOKIE['ultimoPedido'])){
 if(isset($_COOKIE['precioIngred'])){
   $jsonIngred = json_decode($_COOKIE['precioIngred']);
 }
-//setcookie("ultimoPedido", $precioFinal, time() + 10);
-
-// $infoUltimoPedido = 'Tu ultimo gasto fue de ' .$precioFinal;
-//setcookie("ultimoPrecio", $precioFinal, time() + 10);
-
-
-
-//$jsonSession2 = json_decode($jsonSession);
-//var_dump($jsonSession2[0]->producto->id_producto);
-
-//setcookie("ultimoPedido", $jsonSession, time() + 10);
-
-//setcookie('TestCookie', json_encode($_SESSION['seleccion']), time()+10);
-
-// $value = base64_encode(json_encode($_SESSION['seleccion']));
-// setcookie("TestCookie", $value, time()+10);
-
-// $cookie = $_COOKIE['TestCookie'];
-// $cookie = json_decode(base64_decode($cookie));
-// print_r($cookie);
 
 ?>
-<!-- <pre>
-<?php print_r($jsonSession2); ?>
-</pre> -->
+
 <!DOCTYPE html PUBLIC>
 <html>
 
 <head>
   <title>Lou's Burger</title>
-
   <meta charset="UTF-8">
   <meta name="description" content="Descripció web">
   <meta name="keywords" content="Paraules clau">
@@ -53,7 +29,6 @@ if(isset($_COOKIE['precioIngred'])){
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars/">
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
-
 </head>
 
 <body class="body">

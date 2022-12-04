@@ -1,8 +1,14 @@
 <?php
 include "config/parameters.php";
-include "modelo/producto.php";
-include "modelo/pedido.php";
-include "modelo/calculos.php";
+
+include "autoload.php";
+use MODELO\BURGER;
+use MODELO\SANDWICH;
+use MODELO\MERIENDA;
+use MODELO\PRODUCTO;
+use MODELO\INGREDIENTES;
+use MODELO\PEDIDO;
+use MODELO\CALCULAR;
 require_once 'modelo/productos_hechos.php';
 
 include "config/session.php";
@@ -13,9 +19,7 @@ if (isset($_SESSION['seleccion'])) {
       if ($key == $_POST['key']) {
         $pedidoSel = $_SESSION['seleccion'][$_POST['key']];
         $elegido->setCantidad($pedidoSel->getCantidad() + 1);
-        //unset($_POST['key']);
       }
-      //unset($_POST['Add']);
     }
     header('location: carrito.php');
   } else if (isset($_POST['Minus'])) {
@@ -132,7 +136,7 @@ setcookie("precioIngred", $jsonSession, 0, '/');
         <img src="assets/images/foto_chica_envio.png">
         <div class="pagar_total">
           <label class="text-1 fw-bold px-1 px-lg-5">Total</label>
-          <label class="text-1 fw-bold ps-1 ps-lg-5"><?php if (isset($_SESSION['seleccion'])) echo CALCULAR::calculadorPrecioTotal($_SESSION['seleccion']); ?> €</label>
+          <label class="text-1 fw-bold ps-1 ps-lg-5"><?php if (isset($_SESSION['seleccion'])) echo number_format(CALCULAR::calculadorPrecioTotal($_SESSION['seleccion']), 2, '.', ''); ?> €</label>
         </div>
         <div class="pagar_boton">
           <!-- <form action=<?= base_url . 'compra.php' ?> method='post'> -->
