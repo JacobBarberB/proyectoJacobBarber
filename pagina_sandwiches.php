@@ -1,4 +1,5 @@
 <?php
+//Lo mismo que en la pagina pagina_burger.php pero cambiando solo el producto llamado
 include "autoload.php";
 use MODELO\BURGER;
 use MODELO\SANDWICH;

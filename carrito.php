@@ -1,7 +1,11 @@
 <?php
+//Incluyo los parametros para leer la ruta de la página
 include "config/parameters.php";
 
+//Incluyo primero el autoload para que me pueda cargar bien las páginas
 include "autoload.php";
+
+//A continuación uso la función use, para decirle al autoload que clases coger a partir de su namespace, buscándolas en modelo
 use MODELO\BURGER;
 use MODELO\SANDWICH;
 use MODELO\MERIENDA;
@@ -9,42 +13,55 @@ use MODELO\PRODUCTO;
 use MODELO\INGREDIENTES;
 use MODELO\PEDIDO;
 use MODELO\CALCULAR;
+
+//Por último incluyo las arrays de los productos
 require_once 'modelo/productos_hechos.php';
 
+//Incluyo el inicio de sesión con la vida de esta
 include "config/session.php";
 
+//Miro si hay session iniciada
 if (isset($_SESSION['seleccion'])) {
+  //Miro si hay Post Add
   if (isset($_POST['Add'])) {
+    //En este foreach, leo el array de session y busco en el if la posicion que sea la misma que me llega por Post 
     foreach ($_SESSION['seleccion'] as $key => $elegido) {
       if ($key == $_POST['key']) {
+        //Cojo la posición del array de session y le sumo 1 a su cantidad
         $pedidoSel = $_SESSION['seleccion'][$_POST['key']];
         $elegido->setCantidad($pedidoSel->getCantidad() + 1);
       }
     }
+    //Reactualizo la página para que al actualizar no se incremento solo
     header('location: carrito.php');
+    //Miro si hay Post Minus
   } else if (isset($_POST['Minus'])) {
     $pedidoSel = $_SESSION['seleccion'][$_POST['key']];
     if ($pedidoSel->getCantidad() == 1) {
+      //Elimino la posicion del array al ponerse a 0
       unset($_SESSION['seleccion'][$_POST['key']]);
       $_SESSION['seleccion'] = array_values($_SESSION['seleccion']);
     } else if ($pedidoSel->getCantidad() > 1) {
+      //Le resto una posicion a su cantidad
       $pedidoSel->setCantidad($pedidoSel->getCantidad() - 1);
       unset($_POST['key']);
     }
     header('location: carrito.php');
   }
 }
-
+//Inserto en una cookie que dura 5 minutos el precio total del pedido
 $precioFinal = CALCULAR::calculadorPrecioTotal($_SESSION['seleccion']);
 if(isset($_COOKIE['ultimoPrecio'])){
-  setcookie("ultimoPrecio", $precioFinal, time() + 10);
+  setcookie("ultimoPrecio", $precioFinal, time() + 300);
 }else{
-  setcookie("ultimoPrecio", $precioFinal, time() + 10);
+  setcookie("ultimoPrecio", $precioFinal, time() + 300);
 }
 
+//Introduzco en la cookie ultimoPedido toda la array de session
 $jsonSession = json_encode($_SESSION['seleccion']);
 setcookie("ultimoPedido", $jsonSession, 0, '/');
 
+//Introduzo en la cookie precioIngred un array de todos los precios extras para así luego poderlos leer
 $precioIngred = array();
 if (isset($_SESSION['seleccion'])) {
   foreach($_SESSION['seleccion'] as $precio){
@@ -108,6 +125,7 @@ setcookie("precioIngred", $jsonSession, 0, '/');
           <div class="row listado_pedidos mx-auto mt-4 text-center">
             <label class="col-lg-2 col-md-4 text-1 fw-bold"><?= $producto->getProducto()->getNombre_producto() ?></label>
             <label class="col-lg-2 col-md-4 d-none d-lg-block text-1 fw-bold">
+              <!-- Leo todos los ingredientes que contiene el producto -->
               <?php foreach ($producto->getExtras() as $ingredien) { ?>
                 <?= $ingredien->ingred ?>
               <?php } ?>

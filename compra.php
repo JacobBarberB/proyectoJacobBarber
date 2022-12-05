@@ -4,11 +4,12 @@ include "autoload.php";
 
 require_once 'modelo/productos_hechos.php';
 
+//Si existe la cookie ultimoPedido la decodifico y la meto en $jsonCookie para luego leerla
 if(isset($_COOKIE['ultimoPedido'])){
   $jsonCookie = json_decode($_COOKIE['ultimoPedido']);
-}else{		
-    
 }
+
+//Si existe la cookie precioIngred la decodifico y la meto en $jsonIngred para luego leerla
 if(isset($_COOKIE['precioIngred'])){
   $jsonIngred = json_decode($_COOKIE['precioIngred']);
 }
@@ -64,6 +65,7 @@ if(isset($_COOKIE['precioIngred'])){
       if (isset($_COOKIE['ultimoPedido'])) {
         foreach ($jsonCookie as $key => $producto) { ?>
           <div class="row listado_pedidos mx-auto mt-4 text-center">
+            <!-- Utilizo la $key para leer el array de jsonCookie y así su contenido -->
             <label class="col-lg-2 col-md-4 text-1 fw-bold"><?php echo($jsonCookie[$key]->producto->nombre_producto); ?></label>
             <label class="col-lg-2 col-md-4 d-none d-lg-block text-1 fw-bold">
               <?php foreach($jsonCookie[$key]->extras as $extras){
