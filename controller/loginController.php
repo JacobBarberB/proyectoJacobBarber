@@ -26,6 +26,7 @@ class loginController{
             }else{
                 $comprobar = password_verify($pass, $passHash['contraseña']);
                 $datos = usuario::inicioSesion($email, $passHash['contraseña']);
+                usuario::actualizarSesion($datos['id_usuario'], 1);    
             }            
             if($comprobar){
               //Guardamos la id del usuario en la session
@@ -116,6 +117,11 @@ class loginController{
         include "views/admin.php";
         //Cargamos el footer cerrando la pagina
         include "views/includes/footer.php";        
+    }
+    public function logout(){
+        include "config/session.php";
+        usuario::actualizarSesion($_SESSION['id_usuario'], 0);
+        header("Location: ../config/logout.php");
     }
     public function update(){
         include "modelo/update.php";

@@ -12,7 +12,8 @@ class contactoController{
         include "config/session.php";
         $email_to = "jacob_barber@outlook.es";
         $email_subject = "Contacto desde el sitio web";
-
+        $email_from = "noreply@example.com";
+        
         $email_message = "Detalles del formulario de contacto:\n\n";
         $email_message .= "Nombre: " . $_POST['nombre'] . "\n";
         $email_message .= "Apellido: " . $_POST['apellido'] . "\n";
@@ -24,7 +25,7 @@ class contactoController{
         $headers = 'From: '.$email_from."\r\n".
         'Reply-To: '.$email_from."\r\n" .
         'X-Mailer: PHP/' . phpversion();
-        @mail($email_to, $email_subject, $email_message, $headers);
+        mail($email_to, $email_subject, $email_message, $headers);
 
         header("location: contacto");
     }

@@ -7,7 +7,7 @@
           <label class="text-center text-2 fw-bold fs-3"><?php echo $nombre ?></label>
         </div>
         <div class="logout">
-          <button type="button" class="boton text-2 botonLogout" onclick="window.location.href='../config/logout.php'">Cerrar Sesión</button>
+          <button type="button" class="boton text-2 botonLogout" onclick="window.location.href='logout'">Cerrar Sesión</button>
         </div>
       </div>      
     </section>

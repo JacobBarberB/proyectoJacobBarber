@@ -43,6 +43,15 @@ class usuario{
 
         $conexion->close();
     }
+    public static function actualizarSesion($id_usuario, $estado){
+        $conexion = dataBase::connect();
+        $stmt = $conexion->prepare("UPDATE usuario_sesion SET estado=$estado, ultima_conexion=now()  WHERE id_usuario=$id_usuario");
+        //Bind variables to the prepare
+
+        //Execute statement
+        $stmt->execute();
+        $conexion->close();         
+    }
     public static function inicioSesion($email, $pass){
         $conexion = dataBase::connect();
         $stmt = $conexion->prepare("SELECT * FROM usuario WHERE email=? and contraseña=?");
