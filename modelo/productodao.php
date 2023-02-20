@@ -310,6 +310,11 @@ class productodao{
     }
     public static function eliminarIngrediente($id_ingrediente) {
         $conexion = dataBase::connect();
+        $stmt = $conexion->prepare("DELETE FROM producto_ingrediente WHERE id_ingrediente=?");
+        //Bind variables to the prepare
+        $stmt->bind_param("i", $id_ingrediente);
+        $stmt->execute();
+        
         $stmt = $conexion->prepare("DELETE FROM categoria_ingrediente WHERE id_ingrediente=?");
         //Bind variables to the prepare
         $stmt->bind_param("i", $id_ingrediente);
