@@ -2,7 +2,7 @@
 //Establecemos el nombre de la session
 $nameSession = 'SessionLous';
 //Establecer el tiempo de espera de la sesión en 5 minutos
-$timeout = (60) * 5 ;
+$timeout = (60) * 30 ;
 //Establecer el maxlifetime de la sesión
 ini_set ( "session.gc_maxlifetime" , $timeout ) ;
 

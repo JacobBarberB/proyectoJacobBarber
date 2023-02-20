@@ -1,6 +1,34 @@
 @charset "utf-8";
 
 /* FUENTES */
+@font-face {
+  font-family: "Miriam Libre";
+  src: url("../fonts/MiriamLibre-Regular.ttf");
+}
+@font-face {
+  font-family: "Typography";
+  src: url("../fonts/Typography.otf");
+}
+@font-face {
+  font-family: "Nirmala UI";
+  src: url("../fonts/NirmalaB.ttf");
+}
+@font-face {
+  font-family: "Forte";
+  src: url("../fonts/FORTE.TTF");
+}
+@font-face {
+  font-family: "Stencil";
+  src: url("../fonts/STENCIL.TTF");
+}
+@font-face {
+  font-family: "Ravie";
+  src: url("../fonts/RAVIE.TTF");
+}
+@font-face {
+  font-family: "Myanmar Text";
+  src: url("../fonts/mmrtext.ttf");
+}
 .text-1{
   font-family: 'Miriam Libre'; 
 }
@@ -28,12 +56,22 @@
   --color1: rgb(247, 103, 106);/* #F7676A */
   --color2: rgb(254, 235, 252);/* #FEEBFC */
   --color3: rgb(104, 217, 242);/* #68d9f2 */
+  --color4: rgb(0, 0, 0);/* #000000 */
 }
 .bg-color1{
   background: var(--color1);
 }
 .bg-color2{
   background: var(--color2);
+}
+.color_b{
+  color: var(--color4);
+}
+.color_c{
+  color: var(--color3);
+}
+.color_r{
+  color: var(--color1);
 }
 
 /*TAMAÑOS*/
@@ -116,7 +154,7 @@
   color: #F7676A !important;
 }
 #logo > img{
-  width: 130px;
+  width: 160px;
   margin-top: 14px;  
 }
 @media (max-width: 992px) {
@@ -247,7 +285,7 @@
 /*SECCION PEDIR*/
 #seccion-pedir{ /* 1360, 648 */
   width: 100%;
-  background-image: URL(../images/imagen_portada.jpg);
+  background-image: URL(../images/imagen_portada.webp);
   background-repeat: no-repeat;
   background-size: 100% auto;
 }
@@ -265,7 +303,7 @@
 }
 @media (max-width: 576px) {
   #seccion-pedir{
-    background-image: URL(../images/imagen_portada_sm.jpg);
+    background-image: URL(../images/imagen_portada_sm.webp);
 /*    background-size: auto 100%;*/
   }
   .div-boton-seccion{
@@ -340,7 +378,7 @@
 /* SECCION MERIENDAS */
 #section_meriendas{
   width: 100%;
-  background-image: URL(../images/img_milkshakes.jpg);
+  background-image: URL(../images/img_milkshakes.webp);
   background-repeat: no-repeat;
   background-size: 100% auto;
 }
@@ -394,7 +432,7 @@
 }
 @media (max-width: 576px){
   #section_meriendas{
-    background-image: URL(../images/img_milkshakes_sm.jpg);
+    background-image: URL(../images/img_milkshakes_sm.webp);
     background-size: auto 100%;
   }
   .row_meriendas{
@@ -428,13 +466,13 @@
   margin-bottom: 2rem;
 }
 .menu_burger{
-  background-image: URL(../images/carta_burger.jpg);
+  background-image: URL(../images/carta_burger.webp);
 }
 .menu_sand{
-  background-image: URL(../images/carta_sandwich.jpg);
+  background-image: URL(../images/carta_sandwich.webp);
 }
 .menu_meri{
-  background-image: URL(../images/carta_meriendas.jpg);
+  background-image: URL(../images/carta_meriendas.webp);
 }
 .div-menu-seccion{
   padding-top: 110px;
@@ -470,7 +508,7 @@
 @media (max-width: 576px) {
   #seccion-menu{
     background-size: auto 100%;
-    background-image: URL(../images/carta_menu_sm.jpg);
+    background-image: URL(../images/carta_menu_sm.webp);
     padding-bottom: 2rem;
     margin-bottom: 1rem;
   }
@@ -523,16 +561,16 @@
   margin-left: 1%;  
 }
 .marco_1{
-  background-image: URL(../images/cuadro_1.png);
+  background-image: URL(../images/cuadro_1.svg);
 }
 .marco_2{
-  background-image: URL(../images/cuadro_2.png);
+  background-image: URL(../images/cuadro_2.svg);
 }
 .marco_3{
-  background-image: URL(../images/cuadro_3.png);
+  background-image: URL(../images/cuadro_3.svg);
 }
 .marco_4{
-  background-image: URL(../images/cuadro_4.png);
+  background-image: URL(../images/cuadro_4.svg);
 }
 .producto_foto{
   width: 50%;
@@ -557,7 +595,7 @@
   padding-right: 45px;
 }
 .producto_precio{
-  background-image: URL(../images/circulo_lg.png);
+  background-image: URL(../images/circulo_lg.svg);
   background-repeat: no-repeat;
   float: left;
   padding-bottom: 20px;
@@ -602,19 +640,19 @@
     width: 390px;
   }
   .marco_1{
-    background-image: URL(../images/cuadro_1_b.png);
+    background-image: URL(../images/cuadro_1_b.svg);
     margin-left: 0px;
   }
   .marco_2{
-    background-image: URL(../images/cuadro_2_b.png);
+    background-image: URL(../images/cuadro_2_b.svg);
     margin-left: 0px;
   }
   .marco_3{
-    background-image: URL(../images/cuadro_3_b.png);
+    background-image: URL(../images/cuadro_3_b.svg);
     margin-left: 0px;
   }
   .marco_4{
-    background-image: URL(../images/cuadro_4_b.png);
+    background-image: URL(../images/cuadro_4_b.svg);
     margin-left: 0px;
   }
   .producto_foto {
@@ -641,7 +679,7 @@
     padding-bottom: 10px;
   }
   .producto_precio{
-    background-image: URL(../images/circulo_sm.png);
+    background-image: URL(../images/circulo_sm.svg);
     margin-top: 10px;
     padding-bottom: 30px;
   }
@@ -671,6 +709,7 @@
   top: 40%;
   transform: translate(-50%, -50%);
   overflow: auto;
+  z-index: 5;
 }
 .modalContainer .modal-content{
   background-color: #FEEBFC;
@@ -828,6 +867,9 @@ input[type=checkbox]:checked{
   width: 40px;
   display: inline-block;
 }
+.listado_pedidos > div > form > button{
+  background: var(--color2);
+}
 .linea_pedido{
   border-top: #191919 solid 2px;
   width: 80%;
@@ -904,6 +946,423 @@ input[type=checkbox]:checked{
   }
 }
 
+/* LOGIN*/
+#seccion_login{ 
+  width: 100%;
+  background-image: URL(../images/fondo_3.webp);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-bottom: -1.5rem;
+}
+.carta_login{
+  width: 800px;
+  height: 550px;
+  border: var(--color3) solid 3px;
+  background: linear-gradient(to right, var(--color1) 50%, var(--color2) 50%);
+  border-radius: 20px;
+}
+.login_left{
+  display: inline-block;
+  width: 50%;
+}
+.login_bienvenido{
+  width: 346px;
+  border-bottom: var(--color3) solid 3px;
+  margin-left: 30px;  
+  display: inline;
+}
+.login_bienvenido > label{
+  padding-top: 120px;
+  font-size: 2rem;
+  color: black;
+}
+.unMomento{
+  padding-left: 75px;
+  padding-top: 40px;
+}
+.login_right{
+  display: inline-block;
+  width: 49%;
+  float: right;
+}
+.registrar_login{
+  width: 173px;
+  border: var(--color3) solid 2px;
+  background: linear-gradient(to right, var(--color2) 50%, var(--color1) 50%);
+  border-radius: 20px;
+  margin-top: 50px;
+  margin-left: 180px;
+  margin-bottom: 35px;
+}
+.registrar_login > button{
+  background: none;
+  padding-left: 6px;
+  padding-right: 12px;
+}
+.login_right > form > div > input{
+  background-color: var(--color2);
+  border: none;
+  border-bottom: var(--color3) solid 2px;
+  width: 250px;
+}
+.login_right > div > input{
+  background-color: var(--color2);
+  border: none;
+  border-bottom: var(--color3) solid 2px;
+  width: 250px;
+}
+.boton_login{
+  padding-top: 100px;
+}
+.boton_login > button{
+  width: 175px;
+  font-size: 1.7rem;
+}
+
+.login_left > div > input{
+  background-color: var(--color1);
+  border: none;
+  border-bottom: var(--color3) solid 2px;
+  width: 250px;
+}
+.sexo > img{
+  cursor: pointer;
+}
+.color_registro{
+  background: linear-gradient(to right, var(--color1) 50%, var(--color2) 50%);
+}
+#registro > form > div > div > p{
+  margin-bottom: 0px;
+}
+@media (max-width: 576px){
+  #seccion_login{
+    background-image: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #login{
+    width: 375px;
+    height: 850px;
+    background: linear-gradient(var(--color1) 50%, var(--color2) 50%);
+  }
+  .login_bienvenido{
+    margin-left: 10px;
+  }
+  #login > div > .login_bienvenido > label{
+    padding-top: 40px;
+  }
+  .login_left {
+    width: 100%;
+    float: left;
+  }
+  .login_right {
+    width: 100%;
+    float: left;    
+  }
+  #login > div > .registrar_login{
+    margin-top: 85px;
+    margin-bottom: 10px;
+  }
+  #login > div > form > .boton_login{
+    padding-top: 60px;
+  }
+  #registro{
+    width: 375px;
+    height: 955px;
+    background: linear-gradient(var(--color1) 50%, var(--color2) 50%);
+  }
+}
+#datosUser{
+  width: 100%;
+}
+.botonEditar{
+  margin-left: 100px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+.botonEditar > button{
+  width: 200px;
+  font-size: 1.5rem;
+}
+.nombreUser{
+  display: inline-block;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+.logout{
+  float: right;
+  margin-top: 30px;
+  margin-right: 100px;
+}
+.botonLogout{
+  border: 2px solid #68D9F2;
+  background-color: var(--color1);
+  width: 200px;
+  font-size: 1.5rem;
+}
+.botonLogout:hover, .botonLogout:focus{
+  color: var(--color1);
+  background-color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+@media (max-width: 576px){
+  .botonEditar{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .botonEditar > button{
+    width: 120px;
+    font-size: 1.2rem;
+  }
+  .nombreUser{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .logout{
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .botonLogout{
+    width: 120px;
+    font-size: 1.2rem;
+  }
+}
+.container_editarUser{
+  margin-left: 100px;
+  width: 1000px;
+  height: 630px;
+  border: var(--color3) solid 3px;
+  background: var(--color1);
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+.titulo{
+  width: 100%;
+}
+.container_editarUser > form > div > input{
+  background-color: var(--color1);
+  border: none;
+  border-bottom: var(--color3) solid 2px;
+  width: 250px;
+  padding-top: 25px;
+}
+.container_editarUser > form > div{
+  display: inline-block;
+}
+.editarLeft{
+  width: 240px;
+  margin-left: 200px;
+}
+.editarRight{
+  width: 300px;
+}
+#tabla_admin{
+  width: 230px;
+  display: inline-block;
+  margin-bottom: 100px;
+}
+.botonAdmin{
+  width: 150px;
+  font-size: 1.4rem;  
+}
+#contenido_edicion{
+  display: inline-block;
+  float: right;
+  margin-right: 40px;
+}
+#contenido_edicion > div{
+  width: 920px;
+  height: 900px;
+  background-color: var(--color1);
+  border: var(--color3) solid 3px;
+  border-radius: 20px;
+  margin-top: 1rem;
+}
+#contenido_edicion > div > div > form > div > input{
+  background-color: var(--color1);
+  border: none;
+  border-bottom: var(--color3) solid 2px;
+  padding-top: 25px;
+}
+#contenido_edicion > div > div > form > div > div > input{
+  background-color: var(--color1);
+  border: none;
+  border-bottom: var(--color3) solid 2px;
+  padding-top: 25px;
+}
+.description{
+  width: 600px;
+}
+#contenido_edicion > div > div > form > div > button{
+  background-color: var(--color1);  
+}
+@media (max-width: 576px){
+  #tabla_admin{
+    width: 100%;
+    margin-bottom: 0px;
+    overflow: auto;
+  }
+  .tablaAdminPedidos{
+    float: left;
+    margin-left: 30px;
+    margin-top: 60px;
+  }
+  .botonAdmin{
+    width: 120px;
+    font-size: 1.2rem;  
+  }
+  .tablaAdminProductos{
+    float: right;
+    margin-right: 15px;
+    margin-top: 10px;
+  }
+  .tablaAdminIngredientes{
+    float: left;
+    margin-top: 155px;
+    margin-left: 30px;
+    padding-bottom: 10px;
+  }
+  .tablaAdminUsuarios{
+    float: right;
+    margin-right: 15px;
+  }
+  #contenido_edicion{
+    display: block;
+    float: none;
+    margin-right: 0px;
+  }
+  #contenido_edicion > div{
+    width: 100%;
+    height: 900px;
+    margin-top: 10px;
+  }
+  .description{
+    width: 230px;
+  }
+  .tablaCategoria{
+    display: block;
+  }
+  .editarLeft{
+    width: 160px;
+    margin-left: 0px;
+  }
+  .editarRight{
+    width: 200px;
+  }
+}
+
+/* VIDEO */
+.video_lous > div > iframe{
+  width: 700;
+  height: 400;
+}
+.video_titulo{
+  font-size: 40px;
+}
+@media (max-width: 576px){
+  .video_lous > div > iframe{
+    width: 350;
+    height: 200;
+  }
+  .video_titulo{
+    font-size: 30px;
+  }
+}
+/* TABLAS */
+#pedidosUser > div{
+  margin-right: 230px;
+  margin-left: 150px;
+}
+@media (max-width: 576px){
+  #pedidosUser > div{
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
+  tbody {
+      display:block;
+      max-height:700px;
+      overflow-y:auto;
+  }
+  thead, tbody tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;
+  }
+  thead {
+      width: calc( 100% - 1em )
+  } 
+  thead, tbody tr {
+      display:table;
+      width: 800px;
+      table-layout:fixed;
+  }
+  thead {
+      /*width: calc( 800px - 1em )*/
+  } 
+
+/*CONTACTO*/
+.contactos{
+  height: 616px;
+}
+.contacto_titulo{
+  font-size: 4rem;
+}
+.contacto_datos{
+  width: 500px;
+  display: inline-block;
+  margin-top: 20px;
+}
+.contacto_left{
+  width: 120px;
+}
+.contacto_right{
+  width: 250px;
+}
+.buzon{
+  float: right;
+  margin-top: 20px;
+  margin-right: 100px;
+}
+.dark_buzon{
+  width: 400px;
+  height: 120px;
+  background-color: var(--color4);
+  margin-left: 110px;
+  border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+}
+.dark_buzon > img{
+  margin-left: 140px;
+}
+textarea{
+  height: 100px;
+  width: 250px;
+}
+.botonContacto{
+  width: 210px;
+  font-size: 2rem;
+}
+@media (max-width: 576px){
+  .contactos{
+    height: 520px;
+  }
+  .contacto_titulo{
+    font-size: 3rem;
+  }
+  .buzon{
+    display: none;
+  }
+  .contacto_datos{
+    width: 100%;
+  }
+}
+
 
 /*FOOTER*/
 .nav_down_footer{
@@ -913,7 +1372,7 @@ input[type=checkbox]:checked{
   margin-top: 1.5rem;
 }
 #logo_footer > img{
-  width: 110px;
+  width: 160px;
   margin-top: -14%;  
 }
 #footer_smartphone{
@@ -981,40 +1440,50 @@ input[type=checkbox]:checked{
 .youtube{
   width: 50px;
   height:50px;
-  background-image: url("../images/youtube.png");
+  background-image: url("../images/youtube.svg");
   cursor: pointer;
 }
 .youtube:hover, .youtube:focus{
-  background-image: url("../images/youtube_hover.png");
+  background-image: url("../images/youtube_hover.svg");
   cursor: pointer;
 }
 .twitter{
   width: 50px;
   height:50px;
-  background-image: url("../images/twitter.png");
+  background-image: url("../images/twitter.svg");
   cursor: pointer;
 }
 .twitter:hover, .twitter:focus{
-  background-image: url("../images/twitter_hover.png");
+  background-image: url("../images/twitter_hover.svg");
   cursor: pointer;
 }
 .instagram{
   width: 50px;
   height:50px;
-  background-image: url("../images/instagram.png");
+  background-image: url("../images/instagram.svg");
   cursor: pointer;
 }
 .instagram:hover, .instagram:focus{
-  background-image: url("../images/instagram_hover.png");
+  background-image: url("../images/instagram_hover.svg");
   cursor: pointer;
 }
 .facebook{
   width: 50px;
   height:50px;
-  background-image: url("../images/facebook.png");
+  background-image: url("../images/facebook.svg");
   cursor: pointer;
 }
 .facebook:hover, .facebook:focus{
-  background-image: url("../images/facebook_hover.png");
+  background-image: url("../images/facebook_hover.svg");
   cursor: pointer;
+}
+.blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  z-index: 1;
 }

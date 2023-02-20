@@ -1,8 +1,8 @@
 <?php
 
-namespace MODELO;
+namespace modelo;
 
-class CALCULAR{
+class calcular{
 
 	public static function calculadorPrecioTotal($pedidos){
 		$precioFinal = 0;

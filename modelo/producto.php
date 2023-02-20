@@ -1,28 +1,16 @@
 <?php
 
-namespace MODELO;
+namespace modelo;
 
-use MODELO\BURGER;
-use MODELO\SANDWICH;
-use MODELO\MERIENDA;
-use MODELO\INGREDIENTES;
-
-class PRODUCTO implements \JsonSerializable{
+class producto implements \JsonSerializable{
     protected $id_producto;
     protected $nombre_producto;
     protected $descripcion;
     protected $precio_producto;
     protected $imagen;
-    protected $tipo_categoria;
+    protected $id_categoria;
 
-    public function __construct($id_producto, $nombre_producto, $descripcion, $precio_producto, $imagen, $tipo_categoria){
-        $this->id_producto = $id_producto;
-        $this->nombre_producto = $nombre_producto;
-        $this->descripcion = $descripcion;
-        $this->precio_producto = $precio_producto;
-        $this->imagen = $imagen;
-        $this->tipo_categoria = $tipo_categoria;
-    }
+    public function __construct(){}
 
     public function getId_producto(){
         return $this->id_producto;
@@ -67,6 +55,16 @@ class PRODUCTO implements \JsonSerializable{
     public function setImagen($imagen)
     {
         $this->imagen = $imagen;
+    }
+
+    public function getId_categoria()
+    {
+        return $this->id_categoria;
+    }
+    
+    public function setId_categoria($id_categoria)
+    {
+        $this->id_categoria = $id_categoria;
     }
 
     public function jsonSerialize()
