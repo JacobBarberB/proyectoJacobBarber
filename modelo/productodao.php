@@ -353,6 +353,29 @@ class productodao{
         return $listaIngredientes;
         $conexion->close();       
     }
+    public static function insertarIngredienteEnProducto($id_ingrediente, $activo, $id_categoria) {
+        $conexion = dataBase::connect();
+        $stmt = $conexion->prepare("SELECT id_producto FROM producto WHERE id_categoria=?");
+        //Bind variables to the prepare
+        $stmt->bind_param("i", $id_categoria);
+        //Execute statement
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        while($productoDB = $result->fetch_array(MYSQLI_ASSOC)){
+            $listaProductos[] = $productoDB;
+        }
+        foreach ($listaProductos as $key => $producto) {
+            $stmt = $conexion->prepare("INSERT INTO producto_ingrediente (id_producto, id_ingrediente, activo) 
+                                        VALUES(?,?,?)");
+            //Bind variables to the prepare
+            $stmt->bind_param("sii", $producto['id_producto'], $id_ingrediente, $activo);
+
+            //Execute statement
+            $stmt->execute();
+        }
+        $conexion->close();
+    }
 }
 
 ?>

@@ -95,7 +95,9 @@ class loginController{
     public function admin(){
         //Incluyo el inicio de sesión con la vida de esta
         include "config/session.php";
-
+        if(!isset($_SESSION['nombre']) || $_SESSION['admin'] == 0){
+            header("Location: login");
+        }
         $nombre = $_SESSION['nombre'];
         $id_usuario = $_SESSION['id_usuario'];
         $sexo = $_SESSION['sexo'];
@@ -235,14 +237,15 @@ class loginController{
         include "config/session.php";
         $id_ingrediente = productodao::crearIngrediente($_POST['nombre_ingred'], $_POST['precio_ingred']);
         productodao::insertarIngredienteEnCategoria($_POST['categoria_ingred'], $id_ingrediente, $_POST['ingredienteBasico']);
+        productodao::insertarIngredienteEnProducto($id_ingrediente, 0, $_POST['categoria_ingred']);
+
         header("Location: admin");  
     }
     public function modificar_ingrediente(){
         include "config/session.php";
         productodao::actualizarIngrediente($_POST['id_ingrediente'], $_POST['nombre_ingred'], $_POST['precio_ingred']);
         productodao::eliminarIngredienteCategoria($_POST['categoria_ingred'], $_POST['id_ingrediente']);
-        productodao::insertarIngredienteEnCategoria($_POST['categoria_ingred'], $_POST['id_ingrediente'], $_POST['ingredienteBasico']);
-
+        productodao::insertarIngredienteEnCategoria($_POST['categoria_ingred'], $_POST['id_ingrediente'], $_POST['ingredienteBasico']);        
         header("Location: admin");
     }
     public function insertar_usuario(){

@@ -106,7 +106,7 @@ class pedidodao{
                                     JOIN ingrediente ON cambio_producto.id_ingrediente = ingrediente.id_ingrediente
                                     JOIN usuario ON pedido.id_usuario = usuario.id_usuario
                                     WHERE cambio_producto.ingrediente_selec=1 AND ingrediente.nombre_ingred != 'pan_burger' AND ingrediente.nombre_ingred != 'pan_sandwich' AND ingrediente.nombre_ingred != 'leche'
-                                    ORDER BY pedido.id_pedido");
+                                    ORDER BY pedido.id_pedido desc");
         //Execute statement
         $stmt->execute();  
         $result = $stmt->get_result();

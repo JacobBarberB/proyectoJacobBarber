@@ -28,9 +28,9 @@
             <input class="text-1 fw-bold fs-6" type="password" id="psw" name="pass">
           </div>
           <div class="text-center pt-4 sexo" style="width: 100%;">
-            <img id="editar_man" class="mx-5" src="../assets/images/user_1.svg" onclick="user_1('editar')" <?php if($sexo == 1){ ?> style="opacity: 0.6;" <?php } ?>>
-            <img id="editar_woman" class="mx-5" src="../assets/images/user_2.svg" onclick="user_2('editar')" <?php if($sexo == 0){ ?> style="opacity: 0.6;" <?php } ?>>
-            <input type="hidden" id="sexo" name="editar_sexo" <?php if($sexo == 0){ ?> value="0" <?php }else{ ?> value="1" <?php } ?>>
+            <img id="editar_user_man" class="mx-5" src="../assets/images/user_1.svg" onclick="user_1('editar_user')" <?php if($sexo == 1){ ?> style="opacity: 0.6;" <?php } ?>>
+            <img id="editar_user_woman" class="mx-5" src="../assets/images/user_2.svg" onclick="user_2('editar_user')" <?php if($sexo == 0){ ?> style="opacity: 0.6;" <?php } ?>>
+            <input type="hidden" id="editar_user_sexo" name="sexo" <?php if($sexo == 0){ ?> value="0" <?php }else{ ?> value="1" <?php } ?>>
           </div>
           <div class="editarLeft">
             <label class="text-1 fw-bold fs-5 px-5 pt-4 color_b">Email</label>

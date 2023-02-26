@@ -150,8 +150,11 @@
 .navbarToggler{
   background: #FEEBFC;  
 }
-.marcado{
-  color: #F7676A !important;
+.navbar-nav .nav-link:active, .nav-link:hover, .nav-item:hover{
+  color: var(--color3);
+}
+.nav-item > ul > li > a:hover{
+  color: var(--color3);
 }
 #logo > img{
   width: 160px;
@@ -1164,7 +1167,7 @@ input[type=checkbox]:checked{
 #tabla_admin{
   width: 230px;
   display: inline-block;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 .botonAdmin{
   width: 150px;

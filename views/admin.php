@@ -481,9 +481,9 @@
                 <input class="text-1 fw-bold fs-6" type="password" id="insertar_psw" name="pass" required>
               </div>
               <div class="text-center pt-4 sexo" style="width: 100%;">
-                <img id="modificar_man" class="mx-5" src="../assets/images/user_1.svg" onclick="user_1('modificar')">
-                <img id="modificar_woman" class="mx-5" src="../assets/images/user_2.svg" onclick="user_2('modificar')">
-                <input type="hidden" id="modificar_sexo" name="sexo" value="0">
+                <img id="insertar_man" class="mx-5" src="../assets/images/user_1.svg" onclick="user_1('insertar')">
+                <img id="insertar_woman" class="mx-5" src="../assets/images/user_2.svg" onclick="user_2('insertar')">
+                <input type="hidden" id="insertar_sexo" name="sexo" value="0">
               </div>
               <div class="editarLeft d-inline-block">
                 <label class="text-1 fw-bold fs-5 ps-1 ps-lg-5 pt-4 color_b">Email</label>
