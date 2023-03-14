@@ -3,12 +3,12 @@ namespace modelo;
 use config\dataBase;
 
 class pedidodao{
-    public static function nuevoPedido($id_usuario, $importe_total, $pagado){
+    public static function nuevoPedido($id_usuario, $importe_total, $pagado, $importe_propina){
         $conexion = dataBase::connect();
-        $stmt = $conexion->prepare("INSERT INTO pedido (id_usuario, importe_total, fecha_pedido, pagado) 
-                                    VALUES(?,?,now(),?)");
+        $stmt = $conexion->prepare("INSERT INTO pedido (id_usuario, importe_total, fecha_pedido, pagado, propina) 
+                                    VALUES(?,?,now(),?,?)");
         //Bind variables to the prepare
-        $stmt->bind_param("idi", $id_usuario, $importe_total, $pagado);
+        $stmt->bind_param("idid", $id_usuario, $importe_total, $pagado, $importe_propina);
 
         //Execute statement
         $stmt->execute();        
@@ -116,7 +116,51 @@ class pedidodao{
         $conexion->close();
         return $pedidos;
     }
-    
+    public static function allPedidoUser($id_usuario){
+        $conexion = dataBase::connect();
+        $stmt = $conexion->prepare("SELECT p.id_pedido
+                                    FROM pedido p
+                                    WHERE p.id_usuario=? AND
+                                    p.id_pedido NOT IN (SELECT id_pedido FROM reviews WHERE p.id_usuario=?)
+                                    ORDER BY p.id_pedido DESC");
+        //Bind variables to the prepare
+        $stmt->bind_param("ii", $id_usuario, $id_usuario);
+        //Execute statement
+        $stmt->execute();  
+        $result = $stmt->get_result();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $pedidos[] = $row;
+        }
+        $conexion->close();
+        return $pedidos;               
+    }
+    public static function nuevaReview($id_pedido, $id_usuario, $nota, $descripcion){
+        $conexion = dataBase::connect();
+        $stmt = $conexion->prepare("INSERT INTO reviews (id_pedido, id_usuario, nota, descripcion) 
+                                    VALUES(?,?,?,?)");
+        //Bind variables to the prepare
+        $stmt->bind_param("iiis", $id_pedido, $id_usuario, $nota, $descripcion);
+        //Execute statement
+        $stmt->execute();
+        $review = mysqli_insert_id($conexion);
+        //return $id_pedido;
+        $conexion->close();
+        return $review;       
+    }
+    public static function allReviews($orden){
+        $conexion = dataBase::connect();
+        $stmt = $conexion->prepare("SELECT id_pedido, nota, descripcion, email FROM reviews
+                                    JOIN usuario ON (reviews.id_usuario = usuario.id_usuario)
+                                    ORDER BY nota $orden");
+        //Execute statement
+        $stmt->execute();  
+        $result = $stmt->get_result();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $reviews[] = $row;
+        }        
+        return $reviews;
+        $conexion->close();       
+    }   
 }
 
 ?>

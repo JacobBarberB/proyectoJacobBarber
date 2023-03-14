@@ -31,10 +31,10 @@
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link <?php $file_name && $file_name == "leyesController" ? print_active() : " " ?>" aria-current="page" href=<?= base_url . "leyes/privacidad"?>>Privacidad</a>
+                <a class="nav-link <?php $file_name && $file_name == "leyesController" ? print_active() : " " ?>" aria-current="page" href=<?= base_url."leyes/privacidad"?>>Privacidad</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">Cookies</a>
+                <a class="nav-link <?php $file_name && $file_name == "contactoController" ? print_active() : " " ?>" href=<?= base_url."contacto/contacto"?>>Contacto</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link">Aviso Legal</a>
@@ -48,7 +48,7 @@
     <div id="footer_smartphone" class="text-center">
       <div class="bg-color2 text-1 fw-bold">
         <a class="nav-link ps-1 py-1 py-lg-0 <?php $file_name && $file_name == "leyesController" ? print_active() : " " ?>" aria-current="page" href=<?= base_url . "leyes/privacidad"?>>Privacidad</a>
-        <a class="nav-link ps-1 py-1 py-lg-0">Cookies</a>
+        <a class="nav-link ps-1 py-1 py-lg-0 <?php $file_name && $file_name == "contactoController" ? print_active() : " " ?>" href=<?= base_url."contacto/contacto"?>>Contacto</a>
         <a class="nav-link ps-1 py-1 py-lg-0">Aviso Legal</a>
         <a class="navbar-brand mx-auto ps-0" href="index.php"><img id="logo_footer_smart" src="../assets/images/logo.svg"></a>
       </div>
@@ -65,6 +65,17 @@
   </body>
 
   <script src="../assets/js/javascript.js"></script>
+  <?php if($file_name == "reviewController"){ ?>
+    <script src="../assets/js/reviewJavascript.js"></script>
+  <?php }else if($file_name == "pedidoController"){ ?>
+    <script src="../assets/js/propinaJavascript.js"></script>
+  <?php }else if($file_name == "cartaController"){ ?>
+    <script src="../assets/js/cartaJavascript.js"></script>
+  <?php }else if($file_name == "conocenosController"){ ?>
+    <script src="../assets/js/conocenosJavascript.js"></script>
+  <?php } ?>  
+  
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/notie"></script>
 
 </html>

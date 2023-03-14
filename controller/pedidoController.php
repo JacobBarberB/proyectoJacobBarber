@@ -107,7 +107,13 @@ class pedidoController{
         $id_usuario = $_SESSION['id_usuario'];
         $pedido = $_SESSION["seleccion"];
         $precioFinal = CALCULAR::calculadorPrecioTotal($_SESSION["seleccion"]);
-        $id_pedido = PEDIDODAO::nuevoPedido($id_usuario,$precioFinal,1);
+        $importe_propina = $_POST['importe_propina'];
+        if(isset($_COOKIE["propina"])){
+            setcookie("propina", $importe_propina, time() + 300);
+        }else{
+            setcookie("propina", $importe_propina, time() + 300);
+        }
+        $id_pedido = PEDIDODAO::nuevoPedido($id_usuario,$precioFinal,1,$importe_propina);
         foreach ($pedido as $key => $producto_pedido) {
             $id_producto = $producto_pedido->getProducto()->getId_producto();
             $cantidad = $producto_pedido->getCantidad();

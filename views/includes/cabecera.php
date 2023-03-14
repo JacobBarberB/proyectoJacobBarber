@@ -31,7 +31,7 @@ function print_active(){
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php $file_name && $file_name == "contactoController" ? print_active() : " " ?>" href=<?= base_url."contacto/contacto"?>>Contacto</a>
+          <a class="nav-link <?php $file_name && $file_name == "reviewController" ? print_active() : " " ?>" href=<?= base_url."review/review"?>>Reseñas</a>
         </li>
       </ul>
     </div>

@@ -63,13 +63,45 @@ use modelo\calcular;
           <label class="text-1 fw-bold ps-1 ps-lg-5"><?php if (isset($_SESSION["seleccion"])) echo number_format(calcular::calculadorPrecioTotal($_SESSION["seleccion"]), 2, ",", ""); ?> €</label>
         </div>
         <div class="pagar_boton">
-          <form action=<?= base_url.'pedido/pedido_realizado'?> method="post">
+          <!-- <form action=<?= base_url.'pedido/pedido_realizado'?> method="post"> -->
             <?php if(isset($_SESSION['nombre'])){ ?>
-              <button type="submit" class="boton btn_pagar text-2" >Pagar</button>
+              <button type="button" class="boton btn_pagar text-2" id="ButtonModal" data-toggle="modal" data-target="#myModal_propina" onclick="ButtonModal_Propina('<?= calcular::calculadorPrecioTotal($_SESSION["seleccion"]) ?>')">Pagar</button>
             <?php }else{ ?>
               <button type="button" class="boton btn_pagar text-2" onclick="botonPagar()">Pagar</button>
             <?php } ?>            
-          </form>  
+          <!-- </form> -->
+          <div id="myModal_propina" class="modalContainer" tabindex="-1">
+            <div class="modal-content col-xs-6">
+              <form action=<?= base_url.'pedido/pedido_realizado'?> method="post">
+                <div>
+                  <h2 id="modal-titulo" class="modal-h2 text-center text-2 size-40">¿Quieres ayudarnos con una propina?</h2>
+                  <button type="button" id="ButtonClose" class="modalClose" onclick="Close_Propina()">X</button>
+                </div>                  
+                <div>                    
+                  <label class="modal-propi text-3 fw-bold size-20 ms-1 ms-lg-5">Precio total de tu pedido:</label>
+                  <label class="modal-propi text-3 fw-bold size-20 ms-1 ms-lg-5"><?php if (isset($_SESSION["seleccion"])) echo number_format(calcular::calculadorPrecioTotal($_SESSION["seleccion"]), 2, ",", ""); ?> €</label>
+                  <input type="hidden" id="importe_pedido" value="<?= calcular::calculadorPrecioTotal($_SESSION["seleccion"]) ?>">
+                </div>
+                <div>
+                  <label class="modal-propi text-3 fw-bold size-20 ms-1 ms-lg-5">Añade una propina del:</label>
+                  <input class="text-1 fw-bold mb-3 cant_propina" type="number" id="propina" name="propina" value="3" min="1" max="100" onclick="Cantidad_Propina()">
+                  <label class="modal-propi text-3 fw-bold size-20">%</label>
+                </div>
+                <div>
+                  <label class="modal-propi text-3 fw-bold size-20 ms-1 ms-lg-5">No añadir propina:</label>
+                  <input type="checkbox" id="no_propina" name="no_propina" onclick="No_Propina()">
+                </div>
+                <div>
+                  <label class="modal-propi text-3 fw-bold size-20 ms-1 ms-lg-5">Precio final:</label>
+                  <label class="modal-propi text-3 fw-bold size-20 ms-1 ms-lg-5" id="total_propina"></label>
+                  <input type="hidden" id="importe_propina" name="importe_propina">
+                </div>                                   
+                <div class="text-start">
+                  <button type="submit" id="ButtonAdd" class="boton finalizarCompra">Finalizar compra</button>                    
+                </div> 
+              </form>                
+            </div>
+          </div>  
         </div>            
       </div>      
     </section>

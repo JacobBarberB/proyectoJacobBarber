@@ -11,6 +11,12 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars/">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <style>
+      .notie-container {
+        box-shadow: none;
+      }
+    </style>
   </head>
   <body class="body">
   <div id="subBody">

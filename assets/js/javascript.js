@@ -80,7 +80,6 @@ function confirmarNombre(){
 		malNombre.style.display= "none";
 		comprovarNombre = 1;
 	}
-	//alert(nombre);
 }
 function confirmarApellido(){
 	var apellido = document.getElementById("apellido").value;
@@ -153,7 +152,7 @@ function botonRegistrar() {
 	if(comprovarTelef == 1 && comprovarDirec == 1 && comprovarEmail == 1 && comprovarPass == 1 && comprovarApellido == 1 && comprovarNombre == 1){	
 		//formRegistro.action = "modelo/registro.php";	
 		buttonRegis.type = "submit";
-		alert("Usuario creado correctamente");
+		notie.alert({ type: 1, text: 'Usuario creado correctamente', stay: true });
 	}
 }
 
@@ -329,7 +328,8 @@ function EliminarProducto() {
 		method: 'POST',
 		body: datos,
 	}).then(res => {
-		alert("Producto eliminado");
+		notie.alert({ type: 1, text: 'Producto eliminado', stay: true });
+		//alert("Producto eliminado");
 		location.reload();
 	});
 }
@@ -337,12 +337,12 @@ function EliminarProducto() {
 function validarFormularioNuevoProducto() {
 	let nom = document.getElementById("produc_nombre_produc").value;
 	if (nom == "") {
-		alert("Es obligatorio poner un nombre");
+		notie.alert({ type: 3, text: 'Es obligatorio poner un nombre', stay: true });
 		return false;
 	}
 	let desc = document.getElementById("produc_desc_produc").value;
 	if (desc == "") {
-		alert("Es obligatorio poner una descripción");
+		notie.alert({ type: 3, text: 'Es obligatorio poner una descripción', stay: true });
 		return false;
 	}
 	let cat1 = document.getElementById("cate_ingred_1");
@@ -350,12 +350,12 @@ function validarFormularioNuevoProducto() {
 	let cat3 = document.getElementById("cate_ingred_3");
 	if (cat1.checked || cat2.checked || cat3.checked) {		
 	}else{
-		alert("Es obligatorio seleccionar una categoria");
+		notie.alert({ type: 3, text: 'Es obligatorio seleccionar una categoria', stay: true });
 		return false;
 	}
 	let imagen = document.getElementById("imagen_prod").value;
 	if (imagen == "") {
-		alert("Es obligatorio seleccionar una imagen");
+		notie.alert({ type: 3, text: 'Es obligatorio seleccionar una imagen', stay: true });
 		return false;
 	}
 	document.getElementById("crear_producto_form").submit();
@@ -366,12 +366,12 @@ function validarFormularioNuevoIngrediente() {
 	let cat3 = document.getElementById("ingred_cat_ingred_3");
 	if (cat1.checked || cat2.checked || cat3.checked) {		
 	}else{
-		alert("Es obligatorio seleccionar una categoria");
+		notie.alert({ type: 3, text: 'Es obligatorio seleccionar una categoria', stay: true });
 		return false;
 	}
 	let nom = document.getElementById("ingred_nombre_ingred").value;
 	if (nom == "") {
-		alert("Es obligatorio poner un nombre");
+		notie.alert({ type: 3, text: 'Es obligatorio poner un nombre', stay: true });
 		return false;
 	}
 	document.getElementById("crear_ingrediente_form").submit();
@@ -431,7 +431,7 @@ function EliminarIngrediente() {
 		method: 'POST',
 		body: datos,
 	}).then(res => {
-		alert("Ingrediente eliminado");		
+		notie.alert({ type: 1, text: 'Ingrediente eliminado', stay: true });	
 		location.reload();
 	});
 }
@@ -488,12 +488,20 @@ function EliminarUsuario() {
 		method: 'POST',
 		body: datos,
 	}).then(res => {
-		alert("Usuario eliminado");
+		notie.alert({ type: 1, text: 'Usuario eliminado', stay: true });
 		location.reload();
 	});
 }
 function botonPagar(){
-	alert("Debes registrarte antes.");
+	//alert("Debes registrarte antes.");
+	notie.force({
+		type: 3,
+		text: 'Debes registrarte antes',
+		buttonText: 'OK',
+		callback: function () {
+		  notie.alert({ type: 3, text: location.href='http://localhost/primerProyectoBarber/login/login' })
+		}
+	  })
 }
 function cambiar(nombre, type) {
 	let listado_producto = document.getElementById("listado_producto");
@@ -516,3 +524,28 @@ function cambiarUsuario(email, type) {
 	cambio_producto.style.display = "block";
 	BuscarUsuario(email, type)
 }
+
+
+
+// let s1 = document.getElementById("star_1");
+// let s2 = document.getElementById("star_2");
+// let s3 = document.getElementById("star_3");
+// let s4 = document.getElementById("star_4");
+// let s5 = document.getElementById("star_5");
+// document.addeventlistener();
+// let estre = document.querySelectorAll('.estrellas');
+
+// estre.forEach(estrella =>{
+// 	console.log(estrella.addEventListener);
+// });
+//video.addeventlistener( timeupdate
+// s2.addEventListener('onclick', event => {
+// 	s2.classList.remove("star_no");
+// 	s2.classList.add("star_yes");
+
+// 	s1.classList.remove("star_no");
+// 	s1.classList.add("star_yes");
+// 	})
+//http://w3.unpocodetodo.info/css3/estrellas.php
+
+

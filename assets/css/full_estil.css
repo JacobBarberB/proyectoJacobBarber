@@ -87,6 +87,9 @@
 .size-40{
   font-size: 40px;
 }
+.size-50{
+  font-size: 40px;
+}
 #size-8{
   height: 8rem;
 }
@@ -97,6 +100,9 @@
 }
 
 /*GENERAL*/
+.marcado{
+  color: var(--color1)!important;
+}
 .body{
   background: #F7676A;
 }
@@ -709,7 +715,7 @@
   position: fixed;
   width: 80%;
   left: 50%;
-  top: 40%;
+  top: 50%;
   transform: translate(-50%, -50%);
   overflow: auto;
   z-index: 5;
@@ -935,6 +941,45 @@ input[type=checkbox]:checked{
   .btn_pagar{
     width: 10rem;
     font-size: 1.4rem;
+  }
+}
+.modalContainer .modal-propi{
+  font-size: 30px;
+  margin: 20px;
+}
+.cant_propina{
+  font-size: 1.7rem;
+  width: 50px;
+  border: none;
+  text-align: center;
+  background-color: var(--color1);
+}
+.finalizarCompra{
+  width: 320px;
+  height: 60px;
+  font-size: 2rem;
+  float: right;
+  border-radius: 13px;
+  font-weight: bold;
+  margin: 20px;
+}
+#no_propina{
+  width: 20px;
+  height: 20px;
+}
+@media (max-width: 576px){
+  .modalContainer .modal-propi{
+    font-size: 16px;
+    margin: 15px;
+  }
+  .cant_propina{
+    font-size: 1.3rem;
+    width: 45px;
+  }
+  .finalizarCompra{
+    width: 260px;
+    height: 50px;
+    font-size: 1.5rem;
   }
 }
 
@@ -1260,7 +1305,7 @@ input[type=checkbox]:checked{
 }
 
 /* VIDEO */
-.video_lous > div > iframe{
+.video_lous > div > video{
   width: 700;
   height: 400;
 }
@@ -1268,7 +1313,7 @@ input[type=checkbox]:checked{
   font-size: 40px;
 }
 @media (max-width: 576px){
-  .video_lous > div > iframe{
+  .video_lous > div > video{
     width: 350;
     height: 200;
   }
@@ -1276,6 +1321,16 @@ input[type=checkbox]:checked{
     font-size: 30px;
   }
 }
+#botonVideo{
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: fixed;
+  width: 200px;
+}
+
 /* TABLAS */
 #pedidosUser > div{
   margin-right: 230px;
@@ -1364,6 +1419,70 @@ textarea{
   .contacto_datos{
     width: 100%;
   }
+}
+
+/*RESEÑA*/
+.clasificacion{
+  direction: rtl;/* right to left */
+  unicode-bidi: bidi-override;/* bidi de bidireccional */  
+}
+.clasificacion > label{ color:grey;}
+.clasificacion > input[type = "radio"]{ display:none;};
+.clasificacion > label:hover ~ label{color: #feae11;}
+.clasificacion > input[type = "radio"]:checked ~ label{color: #feae11;}
+
+.select_pedido{
+  font-size: 2rem;
+  width: 100px;
+  border: none;
+}
+#myModal_review > div > div > textarea{
+  width: 400px;
+}
+@media (max-width: 576px){
+  #myModal_review > div > div > textarea{
+    width: 310px;
+  }
+  .select_pedido{
+    font-size: 1.5rem;
+  }
+}
+.boton_review{
+  width: 150px;
+  font-size: 1.5rem;
+}
+.clasifi{
+  direction: rtl;/* right to left */
+  unicode-bidi: bidi-override;/* bidi de bidireccional */  
+}
+.clasifi > label{ color:grey;}
+.clasifi > input[type = "radio"]{ display:none;};
+.clasifi > label:hover{color: #feae11;}
+.clasifi > label:hover ~ label{color: #feae11;}
+.clasifi > input[type = "radio"]:checked ~ label{color: #feae11;}
+.containerReview{
+  width: 600px;
+  height: 325px;
+  border: var(--color3) solid 3px;
+  background-color: var(--color1);
+  border-radius: 20px;
+}
+.listado_review{
+  font-size: 1.4rem;
+}
+@media (max-width: 576px){
+  .containerReview{
+    width: 350px;
+    height: 200px;
+  }
+  .listado_review{
+    font-size: 1rem;
+  }
+}
+
+/* NOTIE */
+.notie-container {
+  box-shadow: none;
 }
 
 

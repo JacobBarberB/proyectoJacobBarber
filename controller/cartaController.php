@@ -47,4 +47,18 @@ class cartaController{
     public function add_product(){
         include "modelo/add_product.php";
     }
+    public function mostrar_productos(){
+        //$categoria = json_decode($_POST["categoria"]);
+        $categoria = $_POST["categoria"];
+        $lista_productos = productodao::productosCategoria($categoria);
+        echo json_encode($lista_productos, JSON_UNESCAPED_UNICODE);
+        return; 
+    }
+    public function mostrar_ingredientes(){
+        //$categoria = json_decode($_POST["categoria"]);
+        $producto = $_POST["producto"];
+        $lista_ingredientes = productodao::ingredienteProducto($producto);
+        echo json_encode($lista_ingredientes, JSON_UNESCAPED_UNICODE);
+        return; 
+    }
 }

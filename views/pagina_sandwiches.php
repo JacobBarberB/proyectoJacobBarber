@@ -37,11 +37,10 @@ use modelo\productodao;
       </nav>
     </section>
     <section class="text-center">
-      <div style="overflow: hidden;">
-        <?php $cont = 1;
+      <div style="overflow: hidden;" id="mostrarSandwiches">
+        <!-- <?php $cont = 1;
         foreach ($lista_sandwiches as $key => $lista) { ?>
           <div class=" productos marco_<?php echo $cont; ?>">
-          <!-- col-12 col-md-6 mt-6 -->
             <div class="producto_foto">
               <img class="foto" src=<?= $lista->getImagen() ?>>
             </div>
@@ -53,11 +52,9 @@ use modelo\productodao;
               <label class="precio text-5"><?= $lista->getPrecio_producto() . " €" ?></label>
             </div>
             <div class="producto_btn">
-              <!-- <button class="boton btn-carta text-2">Pedir</button> -->
               <input type="hidden" name="tipo" value=<?= $lista->getId_producto(); ?>>
               <button type="button" class="boton btn-carta text-2" id="ButtonModal" data-toggle="modal" data-target="#myModal<?php echo $key; ?>" onclick="ButtonModal('<?= $lista->getNombre_producto() ?>', <?php echo $key; ?>)">Añadir</button>
               <div id="myModal<?php echo $key; ?>" class="modalContainer" tabindex="-1">
-                <!-- {{ $loop->iteration }} -->
                 <div class="modal-content col-xs-6">
                   <div>
                     <h2 id="modal-id<?php echo $key; ?>" style="display:none"><?= $lista->getId_producto() ?></h2>
@@ -85,6 +82,6 @@ use modelo\productodao;
           </div>
         <?php $cont++;
         if($cont > 4){ $cont = 1; }
-        } ?>
+        } ?> -->
       </div>
     </section>    
