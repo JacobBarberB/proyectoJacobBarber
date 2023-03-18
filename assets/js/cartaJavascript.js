@@ -10,9 +10,13 @@ async function mostrarSandwiches(categoria){
 	.then(res => {
 		let cont = 1;
 		let key = 0;
+		const posicion = [];
 		let div = document.getElementById("mostrarSandwiches");
 		div.innerHTML = "";
-		res.forEach(producto => {				
+		res.forEach(producto => {
+			posicion[key]= producto.id_producto;
+			//key = producto.id_producto;
+			console.log("KEY: "+posicion);
 			div.innerHTML += 
 			`<div class="productos marco_${cont}">
             <div class="producto_foto">
@@ -41,16 +45,56 @@ async function mostrarSandwiches(categoria){
 	                  <div id="modalIngred${key}">`
 						//let div_ingred = document.getElementById(`modalIngred${key}`);
 						//console.log(div_ingred)
-						var promesa = new Promise(function(resolve, reject){
-							let a = mostraringredientes2(producto.id_producto, key);
-							//console.log(a.toString());
-							console.log(a);
-							// a.forEach(ingrediente => {
-							// 	console.log(ingrediente);
-							// });
-						});
-						//promesa('id_ingrediente').then(val => console.log(val))		
-											
+						//let ingredientes;
+						
+
+						
+						// var promesa = new Promise(function(resolve, reject){							
+							
+						// 	const a = mostraringredientes2(producto.id_producto, key)
+						// 	.then(ingredientes => {
+						// 		let div_alr = document.getElementById('modalContent'+ key);
+						// 		console.log("--------------------")
+						// 			console.log("--------------------")
+						// 			console.log(key)
+						// 			console.log(div_alr);
+						// 			console.log("--------------------")
+						// 			console.log("--------------------")
+						// 		console.table(ingredientes);
+
+						// 		ingredientes.forEach(ingred =>{
+						// 			console.log(ingred)
+						// 			div_alr.innerHTML +="wg3gergr";
+
+						// 		});
+								
+									
+						// 	});
+						// 	//console.log(div_alr);
+						// 	resolve(a)
+						// }).then(data => {
+						// 	ingredientes = data;
+						// 	let div_ing = document.getElementById('modalContent'+ key);
+						// 	//console.log(div_alr);
+						// 	let keyIng = 0;
+						// 	ingredientes.forEach(ingred =>{
+						// 		let valor1 = "";
+						// 		let valor2 = "";
+						// 		if(ingred.nombre_ingred == "pan_sandwich"){
+						// 			valor1 = "checked disabled";
+						// 		}else if(ingred.activo == 1){
+						// 			valor2 = "checked";
+						// 		}								
+						// 		let i = `<label class="text-3 size-20 ps-2 pe-0 ps-lg-4 pe-lg-1">${ingred.nombre_ingred}</label>
+						// 		<label class="text-3 size-20 ps-0 pe-0 pe-lg-1">${ingred.precio_ingred}€</label>
+						// 		`;
+						// 	//	console.log(i)
+						// 		div_alr.innerHTML += i;
+						// 		keyIng++;
+						// 	});
+						// })
+						// .catch( err => console.log(err));
+						
 					diving.innerHTML +=                     
 	                  `</div>
 					  <div class="text-start">
@@ -62,21 +106,62 @@ async function mostrarSandwiches(categoria){
               </div>
             </div>
           </div>        
-			`
-			key++;
-			cont++;
-			if(cont > 4){
-				cont=1
-			}			
-		});		
+					`
+					key++;
+					cont++;
+					if(cont > 4){
+						cont=1
+					}
+
+			
+			// let diving7 = document.getElementById('modalContent'+ posicion[key]);
+			// console.log(posicion[key]);
+			
+			console.log("FIN FOREACH:"+key);
+		});
+			let kay = 0;
+			const losIngredientes = [];
+			posicion.forEach(pos => {
+				//let diving7 = document.getElementById('modalIngred'+ kay);
+				console.log(kay);
+				const a = mostrar(pos)
+				.then(ingredientes => {
+					console.log(ingredientes);
+					ingredientes.forEach(ingred =>{														
+						losIngredientes[kay] = ingredientes;
+					});									
+				});
+				kay++;
+			});
+
+			//let koy = 0;
+			losIngredientes.forEach(losIngred => {
+				
+				console.log(losIngred);
+				
+				//koy++;
+			});
 	});
 }
+
+async function mostrarIng(producto){
+	const datos_ing = new FormData();
+	datos_ing.append('producto', producto);
+	fetch('mostrar_ingredientes', {
+		method: 'POST',
+		body: datos_ing,
+	}).then(ing => ing.json())
+	.then(ing => {
+		return ing;	
+	});	
+}
+
 
 async function mostraringredientes(producto, key){
 	
 	return new Promise((resolve, reject) => {
-
 		let div_ingred = document.getElementById('modalContent'+ key);
+		
 		const datos_ing = new FormData();
 		datos_ing.append('producto', producto);
 		fetch('mostrar_ingredientes', {
@@ -103,6 +188,7 @@ async function mostraringredientes(producto, key){
 			});
 		});
 		//console.log(div_ingred)
+		console.log(div_ingred);
 		if(div_ingred != ""){
 			resolve(div_ingred);			
 		}else{
@@ -115,7 +201,6 @@ async function mostraringredientes(producto, key){
 async function mostraringredientes2(producto, key){
 	
 	return new Promise((resolve, reject) => {
-
 		let div_ingred = document.getElementById('modalContent'+ key);
 		const datos_ing = new FormData();
 		datos_ing.append('producto', producto);
@@ -125,6 +210,36 @@ async function mostraringredientes2(producto, key){
 		}).then(ing => ing.json())
 		.then(ing => {
 			if (ing != null && ing !== undefined){
+				resolve(ing);
+			}else{
+				reject("Fallo");
+			}
+		});
+	});
+}
+
+let select = document.getElementById('orden');
+select.addEventListener('change',
+	function(){		
+	let selectedOption = this.options[select.selectedIndex];
+	if(selectedOption.value == 0){
+		Reviews('DESC');
+	}else{
+		Reviews('ASC');
+	}
+});
+
+async function mostrar(producto){
+	return new Promise((resolve, reject) => {
+		const datos_ing = new FormData();
+		datos_ing.append('producto', producto);
+		fetch('mostrar_ingredientes', {
+			method: 'POST',
+			body: datos_ing,
+		}).then(ing => ing.json())
+		.then(ing => {
+			
+		if (ing != null && ing !== undefined){
 				resolve(ing);
 			}else{
 				reject("Fallo");

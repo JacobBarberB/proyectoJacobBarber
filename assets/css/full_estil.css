@@ -1330,6 +1330,15 @@ input[type=checkbox]:checked{
   background: fixed;
   width: 200px;
 }
+#imagenVideo{
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  background: fixed;
+  width: 200px;
+}
 
 /* TABLAS */
 #pedidosUser > div{
@@ -1483,6 +1492,24 @@ textarea{
 /* NOTIE */
 .notie-container {
   box-shadow: none;
+}
+
+/* NEWS */
+.botonNews{
+  font-size: 1.9rem;
+  width: 200px;
+}
+#divEnd{
+  width: 120px;
+  height: 70px;
+  position: sticky;
+  top: 0px;
+  float: right;
+}
+@media (max-width: 576px){
+  #myModal_news > div > div > img{
+    width: 200px;
+  }
 }
 
 

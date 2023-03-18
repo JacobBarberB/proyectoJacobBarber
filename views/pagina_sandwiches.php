@@ -37,6 +37,13 @@ use modelo\productodao;
       </nav>
     </section>
     <section class="text-center">
+      <div class="ms-1 ms-lg-5 mt-2 mt-lg-4">
+        <label class="text-2 color_b fs-3">Ordenar por precio:</label>
+        <select name="orden" id="orden" class="text-center bg-color1 border-0 text-1 fw-bold fs-4 ms-1 ms-lg-4" >
+          <option value="0">Mayor a menor</option>
+          <option value="1">Menor a mayor</option>
+        </select>
+      </div>
       <div style="overflow: hidden;" id="mostrarSandwiches">
         <!-- <?php $cont = 1;
         foreach ($lista_sandwiches as $key => $lista) { ?>

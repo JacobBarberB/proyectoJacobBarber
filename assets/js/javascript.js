@@ -1,3 +1,44 @@
+news();
+const divEnd = document.getElementById('divEnd');
+divEnd.addEventListener('mouseover', function() {
+	let mouse = localStorage.getItem('mouse');
+	if(mouse == null){
+		myModal_news.style.display = "block";
+		var body = document.querySelector('body');
+		body.innerHTML = body.innerHTML + '<div class="blocker"></div>';
+		localStorage.setItem('mouse', 1);
+	}  	
+});
+function news(){
+	let myModal_news = document.getElementById("myModal_news");
+	let comprovar = localStorage.getItem('anuncio');
+	function ponerNews(){
+		myModal_news.style.display = "block";
+		var body = document.querySelector('body');
+		body.innerHTML = body.innerHTML + '<div class="blocker"></div>';
+		localStorage.setItem('anuncio', 1);
+		//news();
+	}
+	function ponerNews2(){
+		localStorage.clear();
+		news();
+	}
+	let tiempo = 5000;
+	let tiempo_3 = 600000;
+
+	if(comprovar == null){
+		setTimeout(ponerNews, tiempo);
+	}else{
+		setTimeout(ponerNews2, tiempo_3);
+	}		
+	//localStorage.clear();
+}
+function ButtonNews(){
+	let myModal_news = document.getElementById("myModal_news");
+	myModal_news.style.display = "none";
+	document.getElementsByClassName('blocker')[0].remove();
+	location.reload();
+}
 
 function ButtonModal(nombre, numero){	
 	var modal = document.getElementById("myModal" + numero);
@@ -526,26 +567,13 @@ function cambiarUsuario(email, type) {
 }
 
 
-
-// let s1 = document.getElementById("star_1");
-// let s2 = document.getElementById("star_2");
-// let s3 = document.getElementById("star_3");
-// let s4 = document.getElementById("star_4");
-// let s5 = document.getElementById("star_5");
-// document.addeventlistener();
-// let estre = document.querySelectorAll('.estrellas');
-
-// estre.forEach(estrella =>{
-// 	console.log(estrella.addEventListener);
+// $('#endButton').focus(function(){
+//   $('.change_function').attr("onclick","endNews();");
 // });
-//video.addeventlistener( timeupdate
-// s2.addEventListener('onclick', event => {
-// 	s2.classList.remove("star_no");
-// 	s2.classList.add("star_yes");
+// function endNews() {
+// 	console.log("salir");
+// }
 
-// 	s1.classList.remove("star_no");
-// 	s1.classList.add("star_yes");
-// 	})
-//http://w3.unpocodetodo.info/css3/estrellas.php
+
 
 
