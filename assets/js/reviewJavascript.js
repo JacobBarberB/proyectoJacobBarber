@@ -130,7 +130,6 @@ function ButtonReview(){
 		body: datos,
 	}).then(res => res.json())
 	.then(res => {
-		//alert("Reseña enviada");
 		notie.alert({ type: 1, text: 'Reseña enviada!', stay: true });
 		Close_Review();		
 	});	

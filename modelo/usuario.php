@@ -171,6 +171,27 @@ class usuario{
         return $listaUsuarios;
         $conexion->close();               
     }
+    public static function userPuntos($id_usuario){
+        $conexion = dataBase::connect();
+        $stmt = $conexion->prepare("SELECT puntos FROM usuario WHERE id_usuario=?");
+        //Bind variables to the prepare
+        $stmt->bind_param("i", $id_usuario);
+        //Execute statement
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $puntos = mysqli_fetch_assoc($result);        
+        return $puntos;
+        $conexion->close();               
+    }
+    public static function actualizarPuntos($id_usuario, $puntos){
+        $conexion = dataBase::connect();
+        $stmt = $conexion->prepare("UPDATE usuario SET puntos=? WHERE id_usuario=?");
+        //Bind variables to the prepare
+        $stmt->bind_param("ii", $puntos, $id_usuario);
+        //Execute statement
+        $stmt->execute();
+        $conexion->close();        
+    }
 
 }
 

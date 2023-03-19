@@ -4,6 +4,7 @@ include "autoload.php";
 //A continuación uso la función use, para decirle al autoload que clases coger a partir de su namespace, buscándolas en modelo
 use modelo\calcular;
 use modelo\pedidodao;
+use modelo\usuario;
 
 class pedidoController{
     public function carrito(){
@@ -13,6 +14,10 @@ class pedidoController{
         include "config/session.php";
         // echo "<pre>";
         // print_r($_SESSION["seleccion"]);
+        if (isset($_SESSION["id_usuario"])){
+            $id_usuario = $_SESSION['id_usuario'];
+            $misPuntos = usuario::userPuntos($id_usuario);
+        }        
         //Miro si hay session iniciada
         if (isset($_SESSION["seleccion"])) {
             //Miro si hay Post Add
@@ -86,6 +91,9 @@ class pedidoController{
         if(isset($_COOKIE["precioIngred"])){
             $jsonIngred = json_decode($_COOKIE["precioIngred"]);
         }
+        if(isset($_COOKIE["ultimoPrecio"]) && isset($_COOKIE["propina"])){
+            $suma_final = $_COOKIE["ultimoPrecio"] + $_COOKIE["propina"];
+        }        
         /*echo "<pre>";
         print_r($jsonCookie);
         die;*/
@@ -108,12 +116,15 @@ class pedidoController{
         $pedido = $_SESSION["seleccion"];
         $precioFinal = CALCULAR::calculadorPrecioTotal($_SESSION["seleccion"]);
         $importe_propina = $_POST['importe_propina'];
+        $puntos_usados = $_POST['puntos_usados'];
+        $puntos_finales = $_POST['puntos_finales'];
         if(isset($_COOKIE["propina"])){
             setcookie("propina", $importe_propina, time() + 300);
         }else{
             setcookie("propina", $importe_propina, time() + 300);
         }
-        $id_pedido = PEDIDODAO::nuevoPedido($id_usuario,$precioFinal,1,$importe_propina);
+        usuario::actualizarPuntos($id_usuario, $puntos_finales);
+        $id_pedido = PEDIDODAO::nuevoPedido($id_usuario,$precioFinal,1,$importe_propina,$puntos_usados);
         foreach ($pedido as $key => $producto_pedido) {
             $id_producto = $producto_pedido->getProducto()->getId_producto();
             $cantidad = $producto_pedido->getCantidad();

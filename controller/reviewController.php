@@ -26,7 +26,8 @@ class reviewController{
             //echo $_POST["comentario"]; die;
             $comentario = $_POST["comentario"];
             $review = pedidodao::nuevaReview($id_pedido, $id_usuario, $nota, $comentario);
-            echo json_encode($review, JSON_UNESCAPED_UNICODE) ;
+            //echo json_encode($review, JSON_UNESCAPED_UNICODE) ;
+            echo $review;
             return;
         }else if($_POST["accion"] == 'all_review'){
             $review = pedidodao::allReviews($_POST["orden"]);

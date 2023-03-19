@@ -906,15 +906,20 @@ input[type=checkbox]:checked{
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
+.pagar_pedido > div{
+  float: right;
+  width: 55%;
+}
 .pagar_total{
-  margin-top: 2rem;
-  margin-right: 8rem;
+/*  margin-top: 2rem;*/
+/*  margin-right: 8rem;*/
   font-size: 2.4rem;
   float: right;
+  width: 100%;
 }
 .pagar_boton{
   float: right;
-  margin-top: -16rem;
+/*  margin-top: -16rem;*/
   margin-right: 9rem;
 }
 .btn_pagar{
@@ -949,10 +954,11 @@ input[type=checkbox]:checked{
 }
 .cant_propina{
   font-size: 1.7rem;
-  width: 50px;
+  width: 100px;
   border: none;
   text-align: center;
   background-color: var(--color1);
+  border-radius: 15px;
 }
 .finalizarCompra{
   width: 320px;

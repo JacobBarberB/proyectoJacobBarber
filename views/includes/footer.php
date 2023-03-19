@@ -69,8 +69,8 @@
     <script src="../assets/js/reviewJavascript.js"></script>
   <?php }else if($file_name == "pedidoController"){ ?>
     <script src="../assets/js/propinaJavascript.js"></script>
-  <?php }else if($file_name == "cartaController"){ ?>
-    <script src="../assets/js/cartaJavascript.js"></script>
+  <!-- <?php }else if($file_name == "cartaController"){ ?>
+    <script src="../assets/js/cartaJavascript.js"></script> -->
   <?php }else if($file_name == "conocenosController"){ ?>
     <script src="../assets/js/conocenosJavascript.js"></script>
   <?php } ?>  

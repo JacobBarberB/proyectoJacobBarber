@@ -52,7 +52,7 @@
           <label class="text-1 fw-bold fs-4 px-1 px-lg-5">Propina: <?php if (isset($_COOKIE["propina"])) echo $_COOKIE["propina"]; ?> €</label>
         </div>
         <div class="pagar_total">
-          <label class="text-1 fw-bold px-1 px-lg-5">Total: <?php if (isset($_COOKIE["ultimoPrecio"]) && isset($_COOKIE["propina"])) echo $_COOKIE["ultimoPrecio"] + $_COOKIE["ultimoPrecio"]; ?> €</label>
+          <label class="text-1 fw-bold px-1 px-lg-5">Total: <?php if (isset($_COOKIE["ultimoPrecio"]) && isset($_COOKIE["propina"])) echo $suma_final; ?> €</label>
         </div>
       </div>
     </section>

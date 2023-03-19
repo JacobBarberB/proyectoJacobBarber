@@ -544,6 +544,9 @@ function botonPagar(){
 		}
 	  })
 }
+function botonSinProductos(){
+	notie.alert({ type: 2, text: 'No puedes finalizar si no tienes ningún pedido', stay: true });	
+}
 function cambiar(nombre, type) {
 	let listado_producto = document.getElementById("listado_producto");
 	let cambio_producto = document.getElementById(type + "_producto");

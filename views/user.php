@@ -66,6 +66,7 @@
                 <th class="text-center px-3">Precio del producto</th>
                 <th class="text-center px-3">Cantidad</th>
                 <th class="text-center px-3">Precio de los extras</th>
+                <th class="text-center px-3">Puntos usados</th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
@@ -78,9 +79,16 @@
               <td class="text-center"><label class="text-2 fw-bold color_b"><?= $pedidos['precio_producto'] ?></label></td>
               <td class="text-center"><label class="text-2 fw-bold color_b"><?= $pedidos['cantidad'] ?></label></td>
               <td class="text-center"><label class="text-2 fw-bold color_b"><?= $pedidos['precio_extras'] ?></label></td>
+              <td class="text-center"><label class="text-2 fw-bold color_b"><?= $pedidos['puntos_usados'] ?></label></td>
             </tr>
           <?php } ?>
           </tbody>
         </table>
+      </div>
+    </section>
+    <section id="pedidosUser">
+      <div>
+        <label class="text-center text-2 fw-bold fs-3 pt-4">Mis puntos: </label>
+        <label class="text-center text-2 fw-bold fs-3 pt-4 ms-1 ms-lg-5"><?= $misPuntos['puntos'] ?></label>
       </div>
     </section>

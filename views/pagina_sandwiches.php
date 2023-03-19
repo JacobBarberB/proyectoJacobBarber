@@ -45,7 +45,7 @@ use modelo\productodao;
         </select>
       </div>
       <div style="overflow: hidden;" id="mostrarSandwiches">
-        <!-- <?php $cont = 1;
+        <?php $cont = 1;
         foreach ($lista_sandwiches as $key => $lista) { ?>
           <div class=" productos marco_<?php echo $cont; ?>">
             <div class="producto_foto">
@@ -89,6 +89,6 @@ use modelo\productodao;
           </div>
         <?php $cont++;
         if($cont > 4){ $cont = 1; }
-        } ?> -->
+        } ?>
       </div>
     </section>    

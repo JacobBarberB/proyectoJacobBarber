@@ -38,6 +38,7 @@ class loginController{
               $_SESSION['email']=$datos['email'];
               $_SESSION['direccion']=$datos['direccion'];
               $_SESSION['telefono']=$datos['telefono'];
+              $_SESSION['puntos']=$datos['puntos'];
               //echo $datos['id_usuario'] . $datos['nombre'];
               if($datos['admin'] == 1){
                 header("Location: admin");
@@ -83,6 +84,7 @@ class loginController{
         $direccion = $_SESSION['direccion'];
         $telefono = $_SESSION['telefono'];
         $misPedidos = pedidodao::misPedidos($id_usuario);
+        $misPuntos = usuario::userPuntos($id_usuario);
 
         //Cargamos el header y la cabecera
         include "views/includes/header.php";

@@ -3,12 +3,12 @@ namespace modelo;
 use config\dataBase;
 
 class pedidodao{
-    public static function nuevoPedido($id_usuario, $importe_total, $pagado, $importe_propina){
+    public static function nuevoPedido($id_usuario, $importe_total, $pagado, $importe_propina, $puntos_usados){
         $conexion = dataBase::connect();
-        $stmt = $conexion->prepare("INSERT INTO pedido (id_usuario, importe_total, fecha_pedido, pagado, propina) 
-                                    VALUES(?,?,now(),?,?)");
+        $stmt = $conexion->prepare("INSERT INTO pedido (id_usuario, importe_total, fecha_pedido, pagado, propina, puntos_usados) 
+                                    VALUES(?,?,now(),?,?,?)");
         //Bind variables to the prepare
-        $stmt->bind_param("idid", $id_usuario, $importe_total, $pagado, $importe_propina);
+        $stmt->bind_param("ididi", $id_usuario, $importe_total, $pagado, $importe_propina, $puntos_usados);
 
         //Execute statement
         $stmt->execute();        
@@ -76,7 +76,7 @@ class pedidodao{
     }
     public static function misPedidos($id_usuario){
         $conexion = dataBase::connect();
-        $stmt = $conexion->prepare("SELECT pedido.id_pedido, importe_total, fecha_pedido, cantidad, precio_extras, producto.nombre_producto, producto.precio_producto
+        $stmt = $conexion->prepare("SELECT pedido.id_pedido, importe_total, fecha_pedido, cantidad, precio_extras, puntos_usados, producto.nombre_producto, producto.precio_producto
                                     FROM pedido
                                     JOIN producto_pedido ON pedido.id_pedido = producto_pedido.id_pedido
                                     JOIN producto ON producto_pedido.id_producto = producto.id_producto
